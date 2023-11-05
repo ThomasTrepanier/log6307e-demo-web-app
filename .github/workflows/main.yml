@@ -3,7 +3,7 @@ name: Web-Application CI
 on:
     push:
         branches: [main]
-        paths: ['src/**', 'package.json']
+        paths: ['src/**', 'package.json', '.github/workflows/main.yml']
 
     # Triggers workflow on pull-request events
     # pull_request:
@@ -23,13 +23,13 @@ jobs:
                   node-version: '16'
 
             - name: Install dependencies
-              run: npm install
+              run: cd web-app && npm ci
 
             - name: Lint
-              run: npm run lint
+              run: cd web-app && npm run lint
 
             - name: Build
-              run: npm run build
+              run: cd web-app && npm run build
 
             - name: Test
-              run: npm run test-ci
+              run: cd web-app && npm run test-ci
