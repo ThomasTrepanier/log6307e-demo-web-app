@@ -23,15 +23,25 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: '16'
+                  cache: 'npm'
+                  cache-dependency-path: ${{env.dir}}/package-lock.json
 
             - name: Install dependencies
-              run: cd $DIR && npm ci
+              run: |
+                  cd ${{env.dir}}
+                  npm ci
 
             - name: Lint
-              run: cd $DIR && npm run lint
+              run: |
+                  cd ${{env.dir}}
+                  npm run lint
 
             - name: Build
-              run: cd $DIR && npm run build
+              run: |
+                  cd ${{env.dir}}
+                  npm run build
 
             - name: Test
-              run: cd $DIR && npm run test-ci
+              run: |
+                  cd ${{env.dir}}
+                  npm run test-ci
