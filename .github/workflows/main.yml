@@ -3,7 +3,7 @@ name: Web-Application CI
 on:
     push:
         branches: [main]
-        paths: ['src/**', 'package.json', '.github/workflows/main.yml']
+        paths: ['src/**', 'web-app/package.json', '.github/workflows/main.yml']
         tags: v*
 
     # Triggers workflow on pull-request events

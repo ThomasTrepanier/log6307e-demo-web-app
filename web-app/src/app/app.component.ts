@@ -10,6 +10,6 @@ export class AppComponent {
 
   user: User = {
     age: 45,
-    name: 'John',
+    name: 'John v2.0.0',
   };
 }
