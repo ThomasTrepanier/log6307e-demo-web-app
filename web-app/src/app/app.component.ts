@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'web-app';
 
   user: User = {
-    age: 42,
+    age: 43,
     name: 'John',
   };
 }
