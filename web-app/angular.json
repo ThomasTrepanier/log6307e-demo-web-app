@@ -86,7 +86,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "https://thomastrepanier.github.io/log6307e-demo-web-app"
+            "baseHref": "/log6307e-demo-web-app/"
           }
         }
       }
