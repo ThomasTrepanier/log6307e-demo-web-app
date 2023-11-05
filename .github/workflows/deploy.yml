@@ -46,6 +46,10 @@ jobs:
                   node-version: '16'
                   cache: 'npm'
                   cache-dependency-path: ${{env.dir}}/package-lock.json
+            - name: Install dependencies
+              run: |
+                  cd ${{env.dir}}
+                  npm ci
 
             - name: Deploy
               env:
