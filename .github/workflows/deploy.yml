@@ -1,21 +1,15 @@
-name: Web-Application CI
+name: Web-Application Deploy
 
 on:
     push:
-        branches: [main]
-        paths: ['src/**', 'web-app/package.json', '.github/workflows/main.yml']
+        tags: v*
 
-    # Triggers workflow on pull-request events
-    # pull_request:
-    #     branches: [master]
-
-    # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 env:
     dir: web-app
 
 jobs:
-    ci:
+    build:
         runs-on: ubuntu-latest
 
         steps:
@@ -31,11 +25,6 @@ jobs:
                   cd ${{env.dir}}
                   npm ci
 
-            - name: Lint
-              run: |
-                  cd ${{env.dir}}
-                  npm run lint
-
             - name: Build
               run: |
                   cd ${{env.dir}}
@@ -45,3 +34,22 @@ jobs:
               run: |
                   cd ${{env.dir}}
                   npm run test-ci
+
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '16'
+                  cache: 'npm'
+                  cache-dependency-path: ${{env.dir}}/package-lock.json
+
+            - name: Deploy
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  cd ${{env.dir}}
+                  npm run deploy
