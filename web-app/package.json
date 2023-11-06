@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@thomastrepanier/library": "^1.0.0",
     "library": "file:library-0.0.0.tgz",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
