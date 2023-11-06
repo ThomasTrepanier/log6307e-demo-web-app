@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { User } from '@thomastrepanier/library/projects/demo-lib/src/lib/user';
+import { User, max } from '@thomastrepanier/demo-library/public-api';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,4 +13,9 @@ export class AppComponent {
     age: 45,
     name: 'John v2.0.0',
   };
+
+  constructor() {
+    console.log('AppComponent constructor');
+    console.log(max(1, 2));
+  }
 }
