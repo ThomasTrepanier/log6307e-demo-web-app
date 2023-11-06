@@ -56,4 +56,4 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   cd ${{env.dir}}
-                  npm run deploy
+                  npm run ng -- deploy --name="${{secrets.GITHUB_TOKEN}}" --email="${{secrets.GITHUB_TOKEN}}" --no-silent
