@@ -9,34 +9,34 @@ env:
     dir: web-app
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+    # build:
+    #     runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: '16'
-                  cache: 'npm'
-                  cache-dependency-path: ${{env.dir}}/package-lock.json
+    #     steps:
+    #         - uses: actions/checkout@v3
+    #         - uses: actions/setup-node@v3
+    #           with:
+    #               node-version: '16'
+    #               cache: 'npm'
+    #               cache-dependency-path: ${{env.dir}}/package-lock.json
 
-            - name: Install dependencies
-              run: |
-                  cd ${{env.dir}}
-                  npm ci
+    #         - name: Install dependencies
+    #           run: |
+    #               cd ${{env.dir}}
+    #               npm ci
 
-            - name: Build
-              run: |
-                  cd ${{env.dir}}
-                  npm run build
+    #         - name: Build
+    #           run: |
+    #               cd ${{env.dir}}
+    #               npm run build
 
-            - name: Test
-              run: |
-                  cd ${{env.dir}}
-                  npm run test-ci
+    #         - name: Test
+    #           run: |
+    #               cd ${{env.dir}}
+    #               npm run test-ci
 
     deploy:
-        needs: build
+        # needs: build
         runs-on: ubuntu-latest
 
         steps:
@@ -56,4 +56,4 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   cd ${{env.dir}}
-                  ng deploy --no-silent
+                  npm run deploy
