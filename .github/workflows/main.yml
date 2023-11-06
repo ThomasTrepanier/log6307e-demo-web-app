@@ -24,12 +24,15 @@ jobs:
               with:
                   node-version: '16'
                   cache: 'npm'
+                  registry-url: https://npm.pkg.github.com/
                   cache-dependency-path: ${{env.dir}}/package-lock.json
 
             - name: Install dependencies
               run: |
                   cd ${{env.dir}}
                   npm ci
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Lint
               run: |
