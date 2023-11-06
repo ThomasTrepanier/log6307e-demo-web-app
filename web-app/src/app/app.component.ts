@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User, max } from '@thomastrepanier/demo-library/public-api';
+import { User, max } from '@thomastrepanier/demo-library';
 
 @Component({
   selector: 'app-root',
