@@ -2,7 +2,7 @@ name: Web-Application CI
 
 on:
     push:
-        branches: [main]
+        branches: [main, demo-branch]
         paths: ['src/**', 'web-app/package.json', '.github/workflows/main.yml']
 
     # Triggers workflow on pull-request events
