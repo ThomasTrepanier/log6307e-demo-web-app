@@ -31,8 +31,8 @@ jobs:
               run: |
                   cd ${{env.dir}}
                   npm ci
-            #   env:
-            #       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Lint
               run: |
